@@ -1,0 +1,120 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-image: url("wavy_background_2.jpg");
+  background-size: cover;       /* Scales image to cover the entire container */
+  background-position: center;  /* Centers the image */
+  background-repeat: no-repeat;
+  color:white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.container {
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+
+#status {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.875rem 1rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+button {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  background-color:#38BDF8;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1.5rem;
+}
+
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+#label-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#label-container div {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: left;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 5px solid var(--accent-cyan);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#label-container div[data-label*="good" i] {
+  border-left-color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+}
+
+#label-container div[data-label*="broken" i],
+#label-container div[data-label*="fail" i] {
+  border-left-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+}
+
+#label-container div[data-label*="heavy" i],
+#label-container div[data-label*="load" i] {
+  border-left-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #fbbf24;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
